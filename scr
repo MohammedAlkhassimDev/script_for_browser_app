@@ -1,0 +1,63 @@
+// ==UserScript==
+// @name         othmaneVFSGlobalScript
+// @version      0.1
+// @description  bls script
+// @match        :///
+// @grant        none
+// ==/UserScript==
+
+
+    (function() {
+    'use strict';
+
+    // Função para verificar o URL e executar ações
+    function checkURL() {
+
+        let link = window.location.href;
+
+        if (link == "https://visa.vfsglobal.com/mar/en/ita/login") {
+            setTimeout(function() {
+            var email = document.getElementById("mat-input-0");
+            email.value = "Moussaidmossa@gmail.com";
+            email.classList.remove("ng-untouched", "ng-pristine", "ng-invalid");
+            email.classList.add("ng-dirty", "ng-valid", "ng-touched");
+            email.setAttribute('aria-invalid', 'false');
+
+            var password = document.getElementById("mat-input-1");
+            password.value = "MOImossa95@";
+            password.classList.remove("ng-untouched", "ng-pristine", "ng-invalid");
+            password.classList.add("ng-dirty", "ng-valid", "ng-touched");
+            password.setAttribute('aria-invalid', 'false');
+            setTimeout(document.querySelector('.mat-stroked-button').click(),200);
+            },6000);
+        }else if(link == "https://visa.vfsglobal.com/mar/en/ita/your-details"){
+            window.open("https://www.blsspainmorocco.net/mar/blsappointment/manageappointment","_self")
+            document.getElementById("mat-input-2").value = "Hasnae";
+            document.getElementById("mat-input-3").value = "elalaoui";
+            const select = document.querySelector('mat-select-value-7'); // Seleciona o elemento <select>
+            select.value = 'Female';
+            document.getElementById("dateOfBirth2").value = "01/12/1990";
+            select = document.querySelector('mat-select-value-9'); // Seleciona o elemento <select>
+            select.value = 'Female';
+        // mat-select-value-9 = MOROCCO
+       // mat-input-4 = PASS23454
+       // passportExpirtyDate = 18/05/2023
+
+        //class= mat-focus-indicator mat-stroked-button mat-button-base btn btn-block btn-brand-orange mat-btn-lg
+
+
+         }else if(link == "fd"){
+            console.log("nadaaaaadfdfaaa")
+        }else{
+               console.log("nadaaaaaaaa")
+        }
+
+
+
+    }
+
+    // Verifique o URL quando a página é carregada ou recarregada
+    window.addEventListener("load", checkURL);
+    window.addEventListener("hashchange", checkURL);
+    window.addEventListener("popstate", checkURL);
+})();
